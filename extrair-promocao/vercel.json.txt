@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/extrair-produto.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/extrair-produto",
+      "methods": ["POST"],
+      "dest": "/api/extrair-produto.js"
+    }
+  ]
+}
