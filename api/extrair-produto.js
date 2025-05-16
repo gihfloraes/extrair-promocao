@@ -15,11 +15,10 @@ export default async function handler(req, res) {
   try {
     const response = await axios.get(url);
     const $ = cheerio.load(response.data);
-
     const titulo = $('h1').first().text().trim();
 
     res.status(200).json({ titulo });
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao extrair dados.' });
+    res.status(500).json({ error: 'Erro ao extrair dados.', detalhe: error.message });
   }
 }
